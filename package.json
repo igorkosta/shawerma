@@ -8,6 +8,13 @@
   },
   "keywords": [
     "λ",
+    "lambda",
+    "serverless",
+    "API gateway",
+    "API",
+    "http code",
+    "error",
+    "code",
     "AWS"
   ],
   "author": "Igor",
@@ -22,5 +29,6 @@
   },
   "devDependencies": {
     "jest": "^21.2.1"
-  }
+  },
+  "license": "MIT"
 }

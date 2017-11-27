@@ -37,6 +37,7 @@ you would do something like this:
 const errorResponse = HttpError(401, `You shall not pass`);
 callback(null, errorResponse);
 ```
+
 If you don't provide a third `cors` argument, `HttpError` will add a `cors` header to your response `{ 'Access-Control-Allow-Origin': '*' }`
 
 If you don't want your responses `cors`-ified pass `false` a 3rd argument.
@@ -64,5 +65,56 @@ An API response will look like following:
 ```
 
 ## Response
+By using `Response` function, you can create a standardized API response.
+`Response` takes 3 arguments:
+
+* statusCode
+* data
+* cors (defaults to `true`)
+
+```js
+const response = Response(201, `{'foo':'bar'}`);
+callback(null, response);
+```
+
+If you don't provide a third `cors` argument, `Response` will add a `cors` header to your response `{ 'Access-Control-Allow-Origin': '*' }`
+
+If you don't want your responses `cors`-ified pass `false` a 3rd argument.
+
+```js
+const response = Response(201, `{'foo':'bar'}`, true);
+```
+
+A `Response` will return a `json` object with following structure:
+
+```js
+  return {
+    statusCode,
+    body: JSON.stringify({
+      statusCode,
+      data
+    }),
+    headers
+  }
+```
+
+`data` is always an `Array`. Even if you create an object, we'll wrap it into an array. We want to have the consistent outcome, so that we can always use the same `components` on the frontend.
+
+
+An API response will look like following:
+
+```json
+{
+	"statusCode": 200,
+	"data": [
+	  {
+      "foo":"bar"
+	  },
+		{
+      "koo":"rra"
+		}
+  ]
+}
+```
 
 ## Log
