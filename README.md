@@ -1,3 +1,4 @@
+# This package is still WIP - use at your own risk or don't use at all!!!
 # shawerma
 We start with the sauce - `lavash` comes later!
 
@@ -118,3 +119,14 @@ An API response will look like following:
 ```
 
 ## Log
+`log` wraps `console.log` by adding the information about `log` level to it:
+* `log.info(args)` - would return `INFO args`
+* `log.warn(args)` - would return `WARN args`
+* `log.error(args)` - would return `ERROR args`
+* `log.debug(args)` - would return `DEBUG args`
+
+`log.debug()` will be ignored if `env` variable `DEBUG_LOGGING` is not set or set to `false`
+
+## TODOs
+* Wrap `λ` function in a helper with `option` like `timeout` etc.
+* Add more tests
