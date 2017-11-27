@@ -1,0 +1,26 @@
+{
+  "name": "shawerma",
+  "version": "0.0.1",
+  "description": "Goodies for AWS λ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --color --coverage"
+  },
+  "keywords": [
+    "λ",
+    "AWS"
+  ],
+  "author": "Igor",
+  "license": "MIT",
+  "homepage": "https://github.com/igorkosta/shawerma",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:igorkosta/shawerma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/igorkosta/shawerma/issues"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
+}
