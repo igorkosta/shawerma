@@ -45,22 +45,22 @@ If you don't want your responses `cors`-ified pass `false` a 3rd argument.
 An `HttpError` will return a `json` object with following structure:
 
 ```js
-  return {
+return {
+  statusCode,
+  body: JSON.stringify({
     statusCode,
-    body: JSON.stringify({
-      statusCode,
-      message
-    }),
-    headers
-  };
+    message
+  }),
+  headers
+};
 ```
 
 An API response will look like following:
 
 ```json
 {
-	"statusCode": 401,
-	"message": "Not authorized"
+  "statusCode": 401,
+  "message": "Not authorized"
 }
 ```
 
@@ -88,14 +88,14 @@ const response = Response(201, `{'foo':'bar'}`, true);
 A `Response` will return a `json` object with following structure:
 
 ```js
-  return {
+return {
+  statusCode,
+  body: JSON.stringify({
     statusCode,
-    body: JSON.stringify({
-      statusCode,
-      data
-    }),
-    headers
-  }
+    data
+  }),
+  headers
+}
 ```
 
 `data` is always an `Array`. Even if you create an object, we'll wrap it into an array. We want to have the consistent outcome, so that we can always use the same `components` on the frontend.
@@ -105,14 +105,14 @@ An API response will look like following:
 
 ```json
 {
-	"statusCode": 200,
-	"data": [
-	  {
+  "statusCode": 200,
+  "data": [
+    {
       "foo":"bar"
-	  },
-		{
+    },
+    {
       "koo":"rra"
-		}
+    }
   ]
 }
 ```
