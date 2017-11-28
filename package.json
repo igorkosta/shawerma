@@ -1,6 +1,6 @@
 {
   "name": "shawerma",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Goodies for AWS λ",
   "main": "index.js",
   "scripts": {
