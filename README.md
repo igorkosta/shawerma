@@ -1,5 +1,5 @@
 # This package is still WIP - use at your own risk or don't use at all!!!
-# shawerma
+# shawerma [ ![Codeship Status for igorkosta/shawerma](https://app.codeship.com/projects/4b87d650-b721-0135-8837-0243d1ced2de/status?branch=master)](https://app.codeship.com/projects/258751)
 We start with the sauce - `lavash` comes later!
 
 ![shawerma.jpg](shawerma.jpg)
