@@ -43,3 +43,13 @@ test(`Creates a response without CORS`, () => {
   expect(response.body).toBe(JSON.stringify(expected));
   expect(response.headers).toEqual({});
 });
+
+test(`Creates a response without response body`, () => {
+  const response = Response(204);
+  const expected = {
+    "statusCode":204
+  }
+  expect(response.statusCode).toBe(204);
+  const corsHeader = {'Access-Control-Allow-Origin': '*'}
+  expect(response.headers).toEqual(corsHeader);
+});

@@ -1,5 +1,5 @@
 # This package is still WIP - use at your own risk or don't use at all!!!
-# shawerma [ ![Codeship Status for igorkosta/shawerma](https://app.codeship.com/projects/4b87d650-b721-0135-8837-0243d1ced2de/status?branch=master)](https://app.codeship.com/projects/258751)
+# shawerma [ ![Codeship Status for igorkosta/shawerma](https://app.codeship.com/projects/4b87d650-b721-0135-8837-0243d1ced2de/status?branch=master)](https://app.codeship.com/projects/258751) [![npm version](https://badge.fury.io/js/shawerma.svg)](https://badge.fury.io/js/shawerma)
 We start with the sauce - `lavash` comes later!
 
 ![shawerma.jpg](shawerma.jpg)
@@ -70,7 +70,7 @@ By using `Response` function, you can create a standardized API response.
 `Response` takes 3 arguments:
 
 * statusCode
-* data
+* data (defaults to `null`) - it allows you to create a `No Content` responses
 * cors (defaults to `true`)
 
 ```js
@@ -99,10 +99,19 @@ return {
 }
 ```
 
-`data` is always an `Array`. Even if you create an object, we'll wrap it into an array. We want to have the consistent outcome, so that we can always use the same `components` on the frontend.
+If you pass the `data` argument, `shawerma` will wrap it in an `Array` if it's not one already.
+We want to have the consistent outcome, so that we can always use the same `components` on the frontend.
 
+If you want to create a `No Content` response, e.g. as a result of a `DELETE`
+action, just pass the `statusCode` to the `Response` function, like this:
 
-An API response will look like following:
+```js
+const response = Response(204);
+```
+
+What you will get back is a `204 NO CONTENT` response.
+
+With `data` passed in an API response will look like following:
 
 ```json
 {

@@ -1,10 +1,11 @@
 {
   "name": "shawerma",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Goodies for AWS λ",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "watch": "jest --watchAll"
   },
   "keywords": [
     "λ",
