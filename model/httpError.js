@@ -1,7 +1,5 @@
 'use strict';
 
-const Origins = require('../lib/corSettings');
-
 const HttpError = (statusCode, message, cors = true) => {
 
   let headers = {};
