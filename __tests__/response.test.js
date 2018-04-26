@@ -18,6 +18,11 @@ const item = {
   "doo": "rra"
 };
 
+const corsHeader = {
+  'Access-Control-Allow-Origin': '*',
+  'Vary': 'Origin'
+};
+
 test(`Creates a response with CORS`, () => {
   const response = Response(201, item);
   const expected = {
@@ -27,7 +32,6 @@ test(`Creates a response with CORS`, () => {
       "doo":"rra"
     }]
   };
-  const corsHeader = {'Access-Control-Allow-Origin': '*'}
   expect(response.statusCode).toBe(201);
   expect(response.body).toBe(JSON.stringify(expected));
   expect(response.headers).toEqual(corsHeader);
@@ -50,6 +54,5 @@ test(`Creates a response without response body`, () => {
     "statusCode":204
   }
   expect(response.statusCode).toBe(204);
-  const corsHeader = {'Access-Control-Allow-Origin': '*'}
   expect(response.headers).toEqual(corsHeader);
 });

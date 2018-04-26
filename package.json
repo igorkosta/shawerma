@@ -31,5 +31,7 @@
   "devDependencies": {
     "jest": "^21.2.1"
   },
-  "license": "MIT"
+  "dependencies": {
+    "bluebird": "^3.5.1"
+  }
 }
