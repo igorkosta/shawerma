@@ -136,6 +136,53 @@ With `data` passed in an API response will look like following:
 
 `log.debug()` will be ignored if `env` variable `DEBUG_LOGGING` is not set or set to `false`
 
+## Handler
+`createHandler` function takes a function you want to run and an optional
+`options` array and returns a `handler` function for your `λ`, e.g.
+
+```
+const createHandler = require('shawerma').createHandler;
+
+createHandler(f, options)
+
+f(event) => result || Promise<result>
+
+options : { timeout, onSuccess, onError }
+```
+
+`timeout` defaults to 5 seconds.
+
+The optional `onSuccess` function is called (with the result from `f`) after `f` has returned a result and before the result is returned to API Gateway.
+
+The optional `onError` function is called (with the error object) before the error is returned to API Gateway.
+
+```
+const createHandler = require('shawerma').createHandler;
+const listAll = require('./listAll')
+
+const options = {
+  timeout: 9000
+}
+
+// options is an optional parameter :)
+module.exports.handler = createHandler(listAll, options)
+```
+
+IMPORTANT: whenever you create your handler with the help of `createHandler` it will check whether a user calling your function is authenticated (`event.requestContext.authorizer`) or not and whether the request is coming from the allowed `origin` (`event.headers.origin !== process.env.ORIGIN`).
+
+Those checks are not optional yet - they will be in the future.
+
+```
+if (event.headers.origin !== process.env.ORIGIN) {
+  let response = HttpError(403, `Wrong Origin`)
+  return cb(null, response)
+}
+
+if (!event.requestContext.authorizer) {
+  let result = HttpError(401, `Not authorized`)
+  return cb(null, result)
+}
+```
+
 ## TODOs
-* Wrap `λ` function in a helper with `option` like `timeout` etc.
-* Add more tests
+* Add tests for the `handler`

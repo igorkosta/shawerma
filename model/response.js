@@ -5,7 +5,8 @@ const Response = (statusCode, data = null, cors = true) => {
   let headers = {};
   if (cors) {
     headers = {
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': process.env.ORIGIN || '*',
+      'Vary': 'Origin'
     }
   }
 
@@ -17,6 +18,7 @@ const Response = (statusCode, data = null, cors = true) => {
   }
 
   data = Array.isArray(data) ? data : [data]
+
   return {
     statusCode,
     body: JSON.stringify({
