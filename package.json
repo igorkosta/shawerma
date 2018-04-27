@@ -29,7 +29,7 @@
     "url": "https://github.com/igorkosta/shawerma/issues"
   },
   "devDependencies": {
-    "jest": "^21.2.1"
+    "jest": "^22.4.3"
   },
   "dependencies": {
     "bluebird": "^3.5.1"
