@@ -1,14 +1,14 @@
 'use strict';
 
+const Cors = require('../lib/corSettings');
+
 const HttpError = (statusCode, message, cors = true) => {
 
   let headers = {};
 
-  // const origins = Origins(event);
-
   if (cors) {
     headers = {
-      'Access-Control-Allow-Origin': process.env.ORIGIN || '*',
+      'Access-Control-Allow-Origin': Cors.internals.origin,
       'Vary': 'Origin'
     }
   }
