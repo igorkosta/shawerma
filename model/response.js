@@ -1,10 +1,9 @@
-'use strict';
+'use strict'
 
-const Cors = require('../lib/corSettings');
+const Cors = require('../lib/cors')
 
 const Response = (statusCode, data = null, cors = true) => {
-
-  let headers = {};
+  let headers = {}
 
   if (cors) {
     headers = {
@@ -30,6 +29,6 @@ const Response = (statusCode, data = null, cors = true) => {
     }),
     headers
   }
-};
+}
 
-module.exports = Response;
+module.exports = Response

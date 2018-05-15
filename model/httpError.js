@@ -1,10 +1,9 @@
-'use strict';
+'use strict'
 
-const Cors = require('../lib/corSettings');
+const Cors = require('../lib/cors')
 
 const HttpError = (statusCode, message, cors = true) => {
-
-  let headers = {};
+  let headers = {}
 
   if (cors) {
     headers = {
@@ -20,7 +19,7 @@ const HttpError = (statusCode, message, cors = true) => {
       message
     }),
     headers
-  };
-};
+  }
+}
 
-module.exports = HttpError;
+module.exports = HttpError

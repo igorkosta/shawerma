@@ -140,7 +140,7 @@ With `data` passed in an API response will look like following:
 `createHandler` function takes a function you want to run and an optional
 `options` array and returns a `handler` function for your `λ`, e.g.
 
-```
+```js
 const createHandler = require('shawerma').createHandler;
 
 createHandler(f, options)
@@ -156,7 +156,7 @@ The optional `onSuccess` function is called (with the result from `f`) after `f`
 
 The optional `onError` function is called (with the error object) before the error is returned to API Gateway.
 
-```
+```js
 const createHandler = require('shawerma').createHandler;
 const listAll = require('./listAll')
 
@@ -172,7 +172,7 @@ IMPORTANT: whenever you create your handler with the help of `createHandler` it 
 
 Those checks are not optional yet - they will be in the future.
 
-```
+```js
 if (event.headers.origin !== process.env.ORIGIN) {
   let response = HttpError(403, `Wrong Origin`)
   return cb(null, response)
@@ -183,6 +183,18 @@ if (!event.requestContext.authorizer) {
   return cb(null, result)
 }
 ```
+
+### CORS
+If you want to restrict the `CORS origins` you have to define
+a `process.env.ORIGIN`.
+process.env.ORIGIN can be a string containing multiple `origins` that you want
+to allow for `CORS`, e.g. in `env.yml`
+
+```
+ORIGIN: http://localhost:8080, http://0.0.0.0:8080, https://eat-more-shawerma.com
+```
+
+If no `ORIGIN` is defined, `shawerma` will assume `Access-Control-Allow-Origin: '*'`
 
 ## TODOs
 * Add tests for the `handler`
