@@ -185,7 +185,7 @@ if (!event.requestContext.authorizer) {
 ```
 
 ### Cors
-`const Cors = require('./cors')`
+`const Cors = require('./lib/cors')`
 
 `Cors` exports two functions:
 - `validOrigins` uses `process.env.ORIGIN` string to create an array of valid `origins`
