@@ -1,6 +1,6 @@
 {
   "name": "shawerma",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Goodies for AWS λ",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,8 @@
     "url": "https://github.com/igorkosta/shawerma/issues"
   },
   "devDependencies": {
-    "jest": "^22.4.3"
+    "jest": "^22.4.3",
+    "standard": "^11.0.1"
   },
   "dependencies": {
     "bluebird": "^3.5.1"

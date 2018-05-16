@@ -1,14 +1,13 @@
-'use strict';
+'use strict'
+
+const Cors = require('../lib/cors')
 
 const HttpError = (statusCode, message, cors = true) => {
-
-  let headers = {};
-
-  // const origins = Origins(event);
+  let headers = {}
 
   if (cors) {
     headers = {
-      'Access-Control-Allow-Origin': process.env.ORIGIN || '*',
+      'Access-Control-Allow-Origin': Cors.internals.origin,
       'Vary': 'Origin'
     }
   }
@@ -20,7 +19,7 @@ const HttpError = (statusCode, message, cors = true) => {
       message
     }),
     headers
-  };
-};
+  }
+}
 
-module.exports = HttpError;
+module.exports = HttpError
