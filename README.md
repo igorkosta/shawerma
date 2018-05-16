@@ -173,7 +173,7 @@ IMPORTANT: whenever you create your handler with the help of `createHandler` it 
 Those checks are not optional yet - they will be in the future.
 
 ```js
-if (event.headers.origin !== process.env.ORIGIN) {
+if (!Cors.checkOrigin(event)) {
   let response = HttpError(403, `Wrong Origin`)
   return cb(null, response)
 }
@@ -184,7 +184,13 @@ if (!event.requestContext.authorizer) {
 }
 ```
 
-### CORS
+### Cors
+`const Cors = require('./cors')`
+
+`Cors` exports two functions:
+- `validOrigins` uses `process.env.ORIGIN` string to create an array of valid `origins`
+- `checkOrigin` takes an `event` and returns whether the `event.headers.origin` is one of the allowed origins
+
 If you want to restrict the `CORS origins` you have to define
 a `process.env.ORIGIN`.
 process.env.ORIGIN can be a string containing multiple `origins` that you want
