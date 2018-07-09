@@ -1,7 +1,7 @@
 'use strict'
 
 const normalize = (event) => {
-  // it's still only a shallow clone
+  // it's still only a shallow copy (clone)
   // of the original event
   const normEvent = {...event}
   const headers = {}
@@ -11,7 +11,6 @@ const normalize = (event) => {
   }
 
   normEvent.headers = headers
-  console.log(normEvent)
   return normEvent
 }
 
