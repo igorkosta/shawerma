@@ -2,7 +2,7 @@
 'use strict'
 
 const Normalize = require('../utils/normalize')
-const pluck = require('../utils/pluck')
+const { include, exclude } = require('../utils/json')
 const event = require('./event')
 
 test(`Create a normEvent with all headers lowercased`, () => {
@@ -24,10 +24,27 @@ test(`Should pluck the provided keys from the json object`, () => {
     'remove': 'me'
   }
 
-  const plucked = {
+  const included = {
     'id': 1,
     'foo': 'bar'
   }
 
-  expect(pluck(['id', 'foo'], object)).toEqual(plucked)
+  expect(include(['id', 'foo'], object)).toEqual(included)
+})
+
+test(`Should exclude the provided keys from the json object`, () => {
+  const object = {
+    'id': 1,
+    'foo': 'bar',
+    'bar': 'foo',
+    'remove': 'me'
+  }
+
+  const excluded = {
+    'id': 1,
+    'foo': 'bar',
+    'bar': 'foo'
+  }
+
+  expect(exclude(['remove'], object)).toEqual(excluded)
 })
