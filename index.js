@@ -4,12 +4,13 @@ const HttpError = require('./model/httpError')
 const Response = require('./model/response')
 const log = require('./lib/log')
 const { createHandler } = require('./lib/handler')
-const pluck = require('./utils/pluck')
+const { include, exclude } = require('./utils/json')
 
 module.exports = {
   HttpError,
   Response,
   log,
-  pluck,
+  include,
+  exclude,
   createHandler
 }

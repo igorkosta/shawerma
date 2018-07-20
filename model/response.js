@@ -8,6 +8,7 @@ const Response = (statusCode, data = null, cors = true) => {
   if (cors) {
     headers = {
       'Access-Control-Allow-Origin': Cors.internals.origin,
+      'Access-Control-Allow-Credentials': true,
       'Vary': 'Origin'
     }
   }
