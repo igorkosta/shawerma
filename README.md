@@ -202,5 +202,16 @@ ORIGIN: http://localhost:8080, http://0.0.0.0:8080, https://eat-more-shawerma.co
 
 If no `ORIGIN` is defined, `shawerma` will assume `Access-Control-Allow-Origin: '*'`
 
+In order to control whether your lambda will check for CORS or not, you can use
+set the env variable `CORS` to either `true` or `false`.
+
+Setting `CORS: false` will allow requests from any origins.
+
+### Security
+> Important: Security related headers are set by default. In case you want to disable security related response headers, you can do so by
+setting the environment variable `SECURITY: false`.
+
+Security headers will will take the `ORIGIN` settings into account.
+
 ## TODOs
 * Add tests for the `handler`
