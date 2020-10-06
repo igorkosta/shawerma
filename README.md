@@ -1,8 +1,8 @@
-# This package is still WIP - use at your own risk or don't use at all!!!
 # shawerma [ ![Codeship Status for igorkosta/shawerma](https://app.codeship.com/projects/4b87d650-b721-0135-8837-0243d1ced2de/status?branch=master)](https://app.codeship.com/projects/258751) [![npm version](https://badge.fury.io/js/shawerma.svg)](https://badge.fury.io/js/shawerma)
-We start with the sauce - `lavash` comes later!
 
-![shawerma.jpg](shawerma.jpg)
+<p align="center">
+  <img src="./shawerma.png" />
+</p>
 
 Since we're extensively using `AWS λ`, we thouhgt that we need a bunch of
 helpers that we can reuse in all our customer facing `λ`-based API.
