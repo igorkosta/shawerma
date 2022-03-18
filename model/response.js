@@ -39,14 +39,9 @@ const Response = (
     }
   }
 
-  data = Array.isArray(data) ? data : [data]
-
   return {
     statusCode,
-    body: JSON.stringify({
-      statusCode,
-      data
-    }),
+    body: JSON.stringify(data),
     headers
   }
 }
