@@ -14,10 +14,7 @@ const HttpError = (statusCode, message, cors = true) => {
 
   return {
     statusCode,
-    body: JSON.stringify({
-      statusCode,
-      message
-    }),
+    body: JSON.stringify(message),
     headers
   }
 }

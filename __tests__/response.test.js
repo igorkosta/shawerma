@@ -37,13 +37,7 @@ const securityHeaders = {
 
 test(`Creates a response with CORS`, () => {
   const response = Response(201, item, true, false)
-  const expected = {
-    'statusCode': 201,
-    'data': [{
-      'koo': 'rra',
-      'doo': 'rra'
-    }]
-  }
+  const expected = item
   expect(response.statusCode).toBe(201)
   expect(response.body).toBe(JSON.stringify(expected))
   expect(response.headers).toEqual(corsHeaders)
@@ -51,10 +45,7 @@ test(`Creates a response with CORS`, () => {
 
 test(`Creates a response without CORS`, () => {
   const response = Response(201, list, false, false)
-  const expected = {
-    'statusCode': 201,
-    'data': list
-  }
+  const expected = list
   expect(response.statusCode).toBe(201)
   expect(response.body).toBe(JSON.stringify(expected))
   expect(response.headers).toEqual({})
@@ -68,13 +59,7 @@ test(`Creates a response without response body`, () => {
 
 test(`Creates a response with Security Headers`, () => {
   const response = Response(201, item)
-  const expected = {
-    'statusCode': 201,
-    'data': [{
-      'koo': 'rra',
-      'doo': 'rra'
-    }]
-  }
+  const expected = item
   expect(response.statusCode).toBe(201)
   expect(response.body).toBe(JSON.stringify(expected))
   console.log(`HEADERS: ${JSON.stringify(response.headers, null, 2)}`)
