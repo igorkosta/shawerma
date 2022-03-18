@@ -9,17 +9,17 @@ const corsHeader = {
 }
 
 test(`Creates a not authorized error response with CORS`, () => {
-  const notFound = 'Not authorized'
-  const err = HttpError(401, notFound)
+  const notAuthorized = 'Not authorized'
+  const err = HttpError(401, notAuthorized)
   expect(err.statusCode).toBe(401)
-  expect(err.body).toBe(JSON.stringify(notFound))
+  expect(err.body).toBe(JSON.stringify(notAuthorized))
   expect(err.headers).toEqual(corsHeader)
 })
 
 test(`Creates a not authorized error response without CORS`, () => {
-  const notFound = 'Not authorized'
-  const err = HttpError(401, notFound, false)
+  const notAuthorized = 'Not authorized'
+  const err = HttpError(401, notAuthorized, false)
   expect(err.statusCode).toBe(401)
-  expect(err.body).toBe(JSON.stringify(notFound))
+  expect(err.body).toBe(JSON.stringify(notAuthorized))
   expect(err.headers).toEqual({})
 })
